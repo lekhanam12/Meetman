@@ -1,0 +1,84 @@
+doctype html
+
+html
+	head
+		title= "Participant List"
+		link(rel='stylesheet', href='/stylesheets/participant.css')
+	body
+		nav.navbar.navbar-inverse
+			.container.animated.fadeInUp
+			.jumbotron
+				<img src="images/banner2.png" class="img-responsive">
+			.container
+				.navbar-header
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+				.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						li 
+							a(href='/participants')
+								span.glyphicon.glyphicon-th-list
+								|  Participants
+						li 
+							a(href='/teams')
+								span.glyphicon.glyphicon-user
+								|  Teams
+						li
+							a(href='/committees')
+								span.glyphicon.glyphicon-gift
+								|  Committees
+						li
+							a(href='/venues')
+								span.glyphicon.glyphicon-home
+								|  Venues
+						li
+							a(href='/meetings')
+								span.glyphicon.glyphicon-bullhorn
+								|  Meetings
+						li
+							a(href='/facilitators')
+								span.glyphicon.glyphicon-asterisk
+								|  Facilitators
+						li.dropdown
+							a.dropdown-toggle(href='#', data-toggle="dropdown")
+								|  Reports
+								b.caret
+							ul.dropdown-menu
+								li
+									a(href='/leaderboard') Leaderboard
+								li
+									a(href='/teamcards') Team Cards
+								li
+									a(href='/participantcards') Participant Cards
+								li
+									a(href='/budgettracker') Budget Tracker											
+		h2 Participant List	
+		table.hovertable
+			tr 
+				th.text-align: center ID
+				th.text-align: center First Name
+				th.text-align: center Last Name
+				th.text-align: center Organization				
+				th.text-align: center Email
+				th.text-align: center Prework Complete?				
+				th.text-align: center Team	
+				
+				for participant in participants		
+					tr.hovertable(onmouseover="this.style.backgroundColor='lightgray';" onmouseout="this.style.backgroundColor='white';")
+						td.text-align: center
+							a(href="/participants?id=#{participant.participantid}") #{participant.participantid}
+						td= participant.firstname
+						td= participant.lastname
+						td= participant.organizationname						
+						td= participant.emailaddress
+						td.text-align: center= participant.preworkcomplete						
+						td.text-align: center= participant.teamname
+
+	script(src='/javascripts/jquery-2.0.3.min.js')
+	script(src='/javascripts/bootstrap.min.js')
+
+
+

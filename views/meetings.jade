@@ -1,0 +1,87 @@
+doctype html
+
+html
+	head
+		title= "Meetings"
+		link(rel='stylesheet', href='/stylesheets/participant.css')
+	body
+		nav.navbar.navbar-inverse
+			.container.animated.fadeInUp
+			.jumbotron
+				<img src="images/banner2.png" class="img-responsive">
+			.container
+				.navbar-header
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+				.navbar-collapse.collapse
+					ul.nav.navbar-nav
+						li 
+							a(href='/participants')
+								span.glyphicon.glyphicon-th-list
+								|  Participants
+						li 
+							a(href='/teams')
+								span.glyphicon.glyphicon-user
+								|  Teams
+						li
+							a(href='/committees')
+								span.glyphicon.glyphicon-gift
+								|  Committees
+						li
+							a(href='/venues')
+								span.glyphicon.glyphicon-home
+								|  Venues
+						li
+							a(href='/meetings')
+								span.glyphicon.glyphicon-bullhorn
+								|  Meetings
+						li
+							a(href='/facilitators')
+								span.glyphicon.glyphicon-asterisk
+								|  Facilitators
+						li.dropdown
+							a.dropdown-toggle(href='#', data-toggle="dropdown")
+								|  Reports
+								b.caret
+							ul.dropdown-menu
+								li
+									a(href='/leaderboard') Leaderboard
+								li
+									a(href='/teamcards') Team Cards
+								li
+									a(href='/participantcards') Participant Cards
+								li
+									a(href='/budgettracker') Budget Tracker											
+		h2 Meetings List	
+		table.hovertable
+			tr 
+				th.text-align: center Meeting Name
+				th.text-align: center Start Date
+				th.text-align: center End Date
+				th.text-align: center Venue				
+				th.text-align: center Venue Type
+				th.text-align: center City		
+				th.text-align: center Meeting Hours	
+				th.text-align: center Sponsors
+				th.text-align: center Budget		
+				
+				for meeting in meetings		
+					tr.hovertable(onmouseover="this.style.backgroundColor='lightgray';" onmouseout="this.style.backgroundColor='white';")
+						td= meeting.meetingname
+						td= meeting.meetingdatestart
+						td= meeting.meetingdateend
+						td= meeting.venuename					
+						td= meeting.venuetypedescription
+						td= meeting.venuecity
+						td= meeting.meetinghours					
+						td= meeting.meetingsponsor
+						td= meeting.meetingbudget
+
+	script(src='/javascripts/jquery-2.0.3.min.js')
+	script(src='/javascripts/bootstrap.min.js')
+
+
+
