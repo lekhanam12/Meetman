@@ -7,9 +7,9 @@ html
 	body
 		nav.navbar.navbar-inverse
 			.container.animated.fadeInUp
-			.jumbotron
-				<img src="images/banner2.png" class="img-responsive">
-			.container
+			.jumbotron(style='padding:0px;margin-bottom:0px')
+				img.img-responsive(src='images/meeting.jpg', style='height:200px;width:2000px')
+			.container(style='margin-left:0px')
 				.navbar-header
 					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
 						span.sr-only Toggle navigation
@@ -55,30 +55,32 @@ html
 									a(href='/participantcards') Participant Cards
 								li
 									a(href='/budgettracker') Budget Tracker											
-		h2 Meetings List	
-		table.hovertable
-			tr 
-				th.text-align: center Meeting Name
-				th.text-align: center Start Date
-				th.text-align: center End Date
-				th.text-align: center Venue				
-				th.text-align: center Venue Type
-				th.text-align: center City		
-				th.text-align: center Meeting Hours	
-				th.text-align: center Sponsors
-				th.text-align: center Budget		
-				
-				for meeting in meetings		
-					tr.hovertable(onmouseover="this.style.backgroundColor='lightgray';" onmouseout="this.style.backgroundColor='white';")
-						td= meeting.meetingname
-						td= meeting.meetingdatestart
-						td= meeting.meetingdateend
-						td= meeting.venuename					
-						td= meeting.venuetypedescription
-						td= meeting.venuecity
-						td= meeting.meetinghours					
-						td= meeting.meetingsponsor
-						td= meeting.meetingbudget
+		h2(style='text-align:center') Meetings List
+		.row(style='margin:5px')
+			.col-md-12		
+				table.table.table-responsive.hovertable
+					tr 
+						th.text-align: center Meeting Name
+						th.text-align: center Start Date
+						th.text-align: center End Date
+						th.text-align: center Venue				
+						th.text-align: center Venue Type
+						th.text-align: center City		
+						th.text-align: center Meeting Hours	
+						th.text-align: center Sponsors
+						th.text-align: center Budget		
+						
+						for meeting in meetings		
+							tr.hovertable(onmouseover="this.style.backgroundColor='lightgray';" onmouseout="this.style.backgroundColor='white';")
+								td= meeting.meetingname
+								td= meeting.meetingdatestart
+								td= meeting.meetingdateend
+								td= meeting.venuename					
+								td= meeting.venuetypedescription
+								td= meeting.venuecity
+								td= meeting.meetinghours					
+								td= meeting.meetingsponsor
+								td= meeting.meetingbudget
 
 	script(src='/javascripts/jquery-2.0.3.min.js')
 	script(src='/javascripts/bootstrap.min.js')
